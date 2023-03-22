@@ -29,10 +29,10 @@ public class Barbeiro {
 	@JoinTable(
 			name = "barbeiros_funcoes",
 			joinColumns = @JoinColumn(name ="barbeiro_id"),
-			inverseJoinColumns = @JoinColumn(name ="funcao_id")
+			inverseJoinColumns = @JoinColumn(name ="servico_id")
 	)
-	@ElementCollection(targetClass = Funcao.class)
-	private List<Funcao> funcoes = new ArrayList<>();
+	@ElementCollection(targetClass = Servicos.class)
+	private List<Servicos> servicos = new ArrayList<>();
 	
 
 }

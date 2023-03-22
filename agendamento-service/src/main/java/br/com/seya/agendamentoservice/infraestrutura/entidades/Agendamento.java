@@ -31,9 +31,9 @@ public class Agendamento {
 	private Cliente cliente;
 	
 	@ManyToOne
-	@JoinColumn(name = "funcao_id")
+	@JoinColumn(name = "servico_id")
 	@NotNull
-	private Funcao funcao;
+	private Servicos servicos;
 	
 	private LocalDate dia;
 	
