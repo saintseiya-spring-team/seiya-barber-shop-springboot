@@ -1,4 +1,4 @@
-package br.com.seya.clienteservice.infraestrutura.entidades;
+package br.com.seya.agendamentoservice.infraestrutura.entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -13,14 +13,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "funcoes")
-public class Funcao {
+@Table(name = "servicos")
+public class Servicos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String funcaoTipo;
+	
+	private String servicoTipo;
+	
 	private BigDecimal preco;
+	
 	private LocalDateTime duracao;
-	@ManyToMany(mappedBy = "funcoes")
+	
+	@ManyToMany(mappedBy = "servicos")
 	private List<Barbeiro> listaBarbeiro = new ArrayList<>();
 }
