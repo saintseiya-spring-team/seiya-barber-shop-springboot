@@ -8,7 +8,7 @@ import br.com.seiya.barbershop.dominio.dtos.BarbeiroDTO;
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroResponseDTO;
 import br.com.seiya.barbershop.dominio.portas.interfaces.BarbeiroServicePort;
 import br.com.seiya.barbershop.dominio.portas.repositorios.BarbeiroRepositoryPort;
-import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.Barbeiro;
+import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.BarbeiroEntity;
 
 public class BarbeiroServiceImp implements BarbeiroServicePort {
 
@@ -20,13 +20,13 @@ public class BarbeiroServiceImp implements BarbeiroServicePort {
 	}
 
 	@Override
-	public Barbeiro cadastrar(BarbeiroDTO barbeiro) {
+	public BarbeiroEntity cadastrar(BarbeiroDTO barbeiro) {
 		return repository.salvar(barbeiro);
 
 	}
 
 	@Override
-	public Barbeiro buscarPorId(Long id) {
+	public BarbeiroEntity buscarPorId(Long id) {
 		return repository.buscarPorId(id);
 	}
 

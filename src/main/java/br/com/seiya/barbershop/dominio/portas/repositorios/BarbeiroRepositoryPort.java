@@ -4,14 +4,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroDTO;
-import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.Barbeiro;
+import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.BarbeiroEntity;
 
 public interface BarbeiroRepositoryPort {
 
-	Barbeiro salvar(BarbeiroDTO barbeiro);
+	BarbeiroEntity salvar(BarbeiroDTO barbeiro);
 
-	Barbeiro buscarPorId(Long id);
+	BarbeiroEntity buscarPorId(Long id);
 
-	Page<Barbeiro> buscarTodos(Pageable pagina);
+	Page<BarbeiroEntity> buscarTodos(Pageable pagina);
 
 }

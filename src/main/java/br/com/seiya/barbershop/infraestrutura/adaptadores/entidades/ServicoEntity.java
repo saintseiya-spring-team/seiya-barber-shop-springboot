@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "servicos")
-public class Servico {
+public class ServicoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,5 +26,5 @@ public class Servico {
     private LocalDateTime duracao;
 
     @ManyToMany(mappedBy = "servicos")
-    private List<Barbeiro> listaBarbeiro = new ArrayList<>();
+    private List<BarbeiroEntity> listaBarbeiro = new ArrayList<>();
 }

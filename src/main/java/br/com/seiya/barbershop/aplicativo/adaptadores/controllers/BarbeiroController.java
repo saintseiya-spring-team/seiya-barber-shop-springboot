@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroDTO;
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroResponseDTO;
 import br.com.seiya.barbershop.dominio.portas.interfaces.BarbeiroServicePort;
-import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.Barbeiro;
+import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.BarbeiroEntity;
 
 @RestController
 public class BarbeiroController {
@@ -32,7 +32,7 @@ public class BarbeiroController {
 	}
 	
 	@GetMapping("/barbeiros/{id}")
-	public ResponseEntity<Barbeiro> buscaBarbeiro(@PathVariable Long id) {
+	public ResponseEntity<BarbeiroEntity> buscaBarbeiro(@PathVariable Long id) {
 		return ResponseEntity.ok(service.buscarPorId(id));
 	}
 	

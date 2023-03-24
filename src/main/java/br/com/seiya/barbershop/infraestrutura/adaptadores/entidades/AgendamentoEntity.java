@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "agendamentos")
-public class Agendamento {
+public class AgendamentoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class Agendamento {
     @ManyToOne
     @JoinColumn(name = "barbeiro_id")
     @NotNull
-    private Barbeiro barbeiro;
+    private BarbeiroEntity barbeiro;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
@@ -37,6 +37,6 @@ public class Agendamento {
     @ManyToOne
     @JoinColumn(name = "servico_id")
     @NotNull
-    private Servico servico;
+    private ServicoEntity servico;
 
 }

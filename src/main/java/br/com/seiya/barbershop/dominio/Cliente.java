@@ -1,5 +1,6 @@
 package br.com.seiya.barbershop.dominio;
 
+import br.com.seiya.barbershop.dominio.dtos.ClienteDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,5 +12,4 @@ public class Cliente {
     private String email;
     private String telefone;
     private Boolean status;
-
 }
