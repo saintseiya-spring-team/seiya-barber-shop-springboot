@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "barbeiros")
 @Data
 @NoArgsConstructor
-public class Barbeiro {
+public class BarbeiroEntity {
 
 
 	@Id
@@ -38,10 +38,10 @@ public class Barbeiro {
             joinColumns = @JoinColumn(name ="barbeiro_id"),
             inverseJoinColumns = @JoinColumn(name ="servico_id")
     )
-    @ElementCollection(targetClass = Servico.class)
-    private List<Servico> servicos = new ArrayList<>();
+    @ElementCollection(targetClass = ServicoEntity.class)
+    private List<ServicoEntity> servicos = new ArrayList<>();
 
-    public Barbeiro(BarbeiroDTO barbeiro) {
+    public BarbeiroEntity(BarbeiroDTO barbeiro) {
     	this.email = barbeiro.email;
     	this.nome = barbeiro.nome;
     	this.telefone = barbeiro.telefone;
