@@ -1,4 +1,4 @@
-package br.com.seiya.barbershop.infraestrutura.adaptadores.repositories;
+package br.com.seiya.barbershop.infraestrutura.adaptadores.repositorios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroDTO;
-import br.com.seiya.barbershop.dominio.portas.repositories.BarbeiroRepositoryPort;
+import br.com.seiya.barbershop.dominio.portas.repositorios.BarbeiroRepositoryPort;
 import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.Barbeiro;
 
 @Component

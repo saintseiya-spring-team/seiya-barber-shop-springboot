@@ -1,4 +1,4 @@
-package br.com.seiya.barbershop.dominio.portas.repositories;
+package br.com.seiya.barbershop.dominio.portas.repositorios;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

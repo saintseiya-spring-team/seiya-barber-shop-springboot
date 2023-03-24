@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.seiya.barbershop.dominio.adaptadores.service.BarbeiroServiceImp;
 import br.com.seiya.barbershop.dominio.portas.interfaces.BarbeiroServicePort;
-import br.com.seiya.barbershop.dominio.portas.repositories.BarbeiroRepositoryPort;
+import br.com.seiya.barbershop.dominio.portas.repositorios.BarbeiroRepositoryPort;
 
 @Configuration
 public class BeanConfiguracao {

@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroDTO;
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroResponseDTO;
 import br.com.seiya.barbershop.dominio.portas.interfaces.BarbeiroServicePort;
-import br.com.seiya.barbershop.dominio.portas.repositories.BarbeiroRepositoryPort;
+import br.com.seiya.barbershop.dominio.portas.repositorios.BarbeiroRepositoryPort;
 import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.Barbeiro;
 
 public class BarbeiroServiceImp implements BarbeiroServicePort {

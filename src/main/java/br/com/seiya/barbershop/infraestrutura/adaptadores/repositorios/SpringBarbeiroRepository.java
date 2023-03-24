@@ -1,4 +1,4 @@
-package br.com.seiya.barbershop.infraestrutura.adaptadores.repositories;
+package br.com.seiya.barbershop.infraestrutura.adaptadores.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
