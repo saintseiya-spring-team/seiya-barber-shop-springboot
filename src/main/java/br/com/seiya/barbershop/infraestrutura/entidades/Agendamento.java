@@ -20,6 +20,10 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private LocalDate dia;
+
+    private LocalDateTime horario;
+
     @ManyToOne
     @JoinColumn(name = "barbeiro_id")
     @NotNull
@@ -33,9 +37,6 @@ public class Agendamento {
     @ManyToOne
     @JoinColumn(name = "servico_id")
     @NotNull
-    private Servico servicos;
+    private Servico servico;
 
-    private LocalDate dia;
-
-    private LocalDateTime horario;
 }
