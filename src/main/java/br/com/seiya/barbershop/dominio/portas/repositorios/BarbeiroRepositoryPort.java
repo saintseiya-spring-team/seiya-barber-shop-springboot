@@ -12,6 +12,6 @@ public interface BarbeiroRepositoryPort {
 
 	Barbeiro buscarPorId(Long id);
 
-	Page<Barbeiro> buscarTodos(Pageable pagima);
+	Page<Barbeiro> buscarTodos(Pageable pagina);
 
 }

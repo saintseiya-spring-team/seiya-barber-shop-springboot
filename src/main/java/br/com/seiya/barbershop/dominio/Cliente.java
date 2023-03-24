@@ -10,5 +10,6 @@ public class Cliente {
     private Long id;
     private String email;
     private String telefone;
+    private Boolean status;
 
 }

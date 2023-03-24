@@ -11,6 +11,6 @@ public interface BarbeiroServicePort {
 	
 	public Barbeiro cadastrar(BarbeiroDTO barbeiro);
 	public Barbeiro buscarPorId(Long id);
-	public Page<BarbeiroResponseDTO> paginarBarbeiros(Pageable pagima);
+	public Page<BarbeiroResponseDTO> paginarBarbeiros(Pageable pagina);
 		
 }
