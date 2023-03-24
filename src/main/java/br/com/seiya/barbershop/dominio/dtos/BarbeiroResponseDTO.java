@@ -3,18 +3,28 @@ package br.com.seiya.barbershop.dominio.dtos;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.Barbeiro;
 import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.Servico;
 
 public class BarbeiroResponseDTO {
 
-    private Long id;
 
-    private String nome;
+	public Long id;
 
-    private String email;
+	public String nome;
 
-    private String telefone;
+	public String email;
 
-    private List<Servico> servicos = new ArrayList<>();
+	public String telefone;
 
+	public List<Servico> servicos = new ArrayList<>();
+
+    public BarbeiroResponseDTO(Barbeiro barbeiro) {
+    	this.id = barbeiro.getId();
+    	this.nome = barbeiro.getNome();
+    	this.email = barbeiro.getEmail();
+    	this.telefone = barbeiro.getTelefone();
+    	this.servicos = barbeiro.getServicos();
+    }
+    
 }
