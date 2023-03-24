@@ -1,17 +1,16 @@
 package br.com.seiya.barbershop.dominio.dtos;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.com.seiya.barbershop.infraestrutura.adaptadores.entidades.Servico;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 public class BarbeiroDTO {
 
-    private String nome;
+	@NotBlank
+    public String nome;
+	@NotBlank
+	@Email
+    public String email;
+	@NotBlank
+    public String telefone;
 
-    private String email;
-
-    private String telefone;
-
-    private List<Servico> servicos = new ArrayList<>();
 }
