@@ -32,7 +32,7 @@ public class Agendamento {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     @NotNull
-    private Cliente cliente;
+    private ClienteEntity clienteEntity;
 
     @ManyToOne
     @JoinColumn(name = "servico_id")

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente {
+public class ClienteEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +16,6 @@ public class Cliente {
 	private String nome;
 	private String email;
 	private String telefone;
-	private boolean status;
+	private Boolean status;
 	
 }
