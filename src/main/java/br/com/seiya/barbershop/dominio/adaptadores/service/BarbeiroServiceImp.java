@@ -1,9 +1,12 @@
 package br.com.seiya.barbershop.dominio.adaptadores.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import br.com.seiya.barbershop.dominio.dtos.BarbeiroCadastroDTO;
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroDTO;
 import br.com.seiya.barbershop.dominio.dtos.BarbeiroResponseDTO;
 import br.com.seiya.barbershop.dominio.portas.interfaces.BarbeiroServicePort;
@@ -20,19 +23,36 @@ public class BarbeiroServiceImp implements BarbeiroServicePort {
 	}
 
 	@Override
-	public Barbeiro cadastrar(BarbeiroDTO barbeiro) {
+	public Barbeiro cadastrar(BarbeiroCadastroDTO barbeiro) {
 		return repository.salvar(barbeiro);
 
 	}
 
 	@Override
-	public Barbeiro buscarPorId(Long id) {
-		return repository.buscarPorId(id);
+	public BarbeiroResponseDTO buscarPorId(Long id) {
+		return new BarbeiroResponseDTO(repository.buscarPorId(id));
 	}
 
 	@Override
 	public Page<BarbeiroResponseDTO> paginarBarbeiros(Pageable pagima) {
 		return repository.buscarTodos(pagima).map(BarbeiroResponseDTO::new);
+	}
+
+	@Override
+	@Transactional
+	public BarbeiroResponseDTO atualizarBarbeiro(Long id, BarbeiroDTO dados) {
+		Barbeiro barbeiro = repository.buscarPorId(id);
+		barbeiro.setNome(dados.nome);
+		barbeiro.setEmail(dados.email);
+		barbeiro.setTelefone(dados.telefone);
+		return new BarbeiroResponseDTO(barbeiro);
+	}
+
+	@Override
+	@Transactional
+	public void exclusaoLogicaBarbeiro(Long id) {
+		Barbeiro barbeiro = repository.buscarPorId(id);
+		barbeiro.setAtivo(false);
 	}
 
 }

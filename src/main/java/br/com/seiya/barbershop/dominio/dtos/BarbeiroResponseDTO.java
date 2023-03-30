@@ -10,6 +10,8 @@ public class BarbeiroResponseDTO {
 
 
 	public Long id;
+	
+	public Boolean ativo;
 
 	public String nome;
 
@@ -25,6 +27,7 @@ public class BarbeiroResponseDTO {
     	this.email = barbeiro.getEmail();
     	this.telefone = barbeiro.getTelefone();
     	this.servicos = barbeiro.getServicos();
+    	this.ativo = barbeiro.getAtivo();
     }
     
 }

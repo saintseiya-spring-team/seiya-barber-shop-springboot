@@ -7,9 +7,12 @@ public class BarbeiroDTO {
 
 	@NotBlank
     public String nome;
+	public Boolean ativo;
 	@NotBlank
 	@Email
     public String email;
+//	@NotBlank
+//  public String senha;
 	@NotBlank
     public String telefone;
 

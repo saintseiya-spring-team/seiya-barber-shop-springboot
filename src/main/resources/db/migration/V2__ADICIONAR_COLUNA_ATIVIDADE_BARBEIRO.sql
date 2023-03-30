@@ -1,0 +1,1 @@
+ALTER TABLE barbeiros ADD COLUMN ativo BOOLEAN DEFAULT true;

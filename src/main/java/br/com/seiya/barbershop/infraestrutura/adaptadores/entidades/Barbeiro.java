@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
-import br.com.seiya.barbershop.dominio.dtos.BarbeiroDTO;
+import br.com.seiya.barbershop.dominio.dtos.BarbeiroCadastroDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,6 +26,8 @@ public class Barbeiro {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	
+	private Boolean ativo;
 
     private String nome;
 
@@ -41,10 +43,11 @@ public class Barbeiro {
     @ElementCollection(targetClass = Servico.class)
     private List<Servico> servicos = new ArrayList<>();
 
-    public Barbeiro(BarbeiroDTO barbeiro) {
+    public Barbeiro(BarbeiroCadastroDTO barbeiro) {
     	this.email = barbeiro.email;
     	this.nome = barbeiro.nome;
     	this.telefone = barbeiro.telefone;
+    	this.ativo = true;
     }
 
 }
