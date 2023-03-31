@@ -1,4 +1,4 @@
-package br.com.seiya.barbershop.infraestrutura.configuracao;
+package br.com.seiya.barbershop.adapter.exception;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +8,12 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import br.com.seiya.barbershop.dominio.exceptions.IdNaoEncontrado;
-
+import br.com.seiya.barbershop.domain.exceptions.IdNaoEncontradoException;
+//TODO controller advice faz sentido que fique na camada de aplicação e dentro de um adaptador
 @RestControllerAdvice
-public class Handler {
+public class GlobalExceptionHandler {
 
-	@ExceptionHandler(IdNaoEncontrado.class)
+	@ExceptionHandler(IdNaoEncontradoException.class)
 	public ResponseEntity<Object> idNaoEncontrado(Exception e) {
 		return ResponseEntity.notFound().build();
 	}

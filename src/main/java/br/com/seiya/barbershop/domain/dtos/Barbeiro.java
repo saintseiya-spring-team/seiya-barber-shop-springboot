@@ -1,9 +1,9 @@
-package br.com.seiya.barbershop.dominio.dtos;
+package br.com.seiya.barbershop.domain.dtos;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-public class BarbeiroDTO {
+public class Barbeiro {
 
 	@NotBlank
     public String nome;

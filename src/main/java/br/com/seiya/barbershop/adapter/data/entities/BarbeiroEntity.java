@@ -1,4 +1,4 @@
-package br.com.seiya.barbershop.infraestrutura.adaptadores.entidades;
+package br.com.seiya.barbershop.adapter.data.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
-import br.com.seiya.barbershop.dominio.dtos.BarbeiroCadastroDTO;
+import br.com.seiya.barbershop.domain.dtos.BarbeiroRequest;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,12 +20,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "barbeiros")
 @Data
 @NoArgsConstructor
-public class Barbeiro {
-
-
+public class BarbeiroEntity {
+//TODO Ids em forma de hash ou CPF
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String cpf;
 	
 	private Boolean ativo;
 
@@ -40,10 +38,10 @@ public class Barbeiro {
             joinColumns = @JoinColumn(name ="barbeiro_id"),
             inverseJoinColumns = @JoinColumn(name ="servico_id")
     )
-    @ElementCollection(targetClass = Servico.class)
-    private List<Servico> servicos = new ArrayList<>();
+    @ElementCollection(targetClass = ServicoEntity.class)
+    private List<ServicoEntity> servicos = new ArrayList<>();
 
-    public Barbeiro(BarbeiroCadastroDTO barbeiro) {
+    public BarbeiroEntity(BarbeiroRequest barbeiro) {
     	this.email = barbeiro.email;
     	this.nome = barbeiro.nome;
     	this.telefone = barbeiro.telefone;

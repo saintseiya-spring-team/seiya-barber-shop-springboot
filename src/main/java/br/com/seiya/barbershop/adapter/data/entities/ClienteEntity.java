@@ -1,4 +1,4 @@
-package br.com.seiya.barbershop.infraestrutura.adaptadores.entidades;
+package br.com.seiya.barbershop.adapter.data.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente {
+public class ClienteEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
