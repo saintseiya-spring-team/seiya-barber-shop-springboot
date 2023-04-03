@@ -9,7 +9,7 @@ public interface BarbeiroRepositoryPort {
 
 	BarbeiroEntity salvar(BarbeiroEntity barbeiro);
 
-	BarbeiroEntity buscarPorId(Long id);
+	BarbeiroEntity buscarPorId(String cpf);
 
 	Page<BarbeiroEntity> buscarTodos(Pageable pagima);
 

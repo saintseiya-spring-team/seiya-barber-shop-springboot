@@ -5,8 +5,9 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import lombok.Builder;
 
-//TODO ver https://mapstruct.org/ para converter um objeto em outro tipo de objeto
+@Builder
 public class BarbeiroRequest {
 
 	@NotBlank

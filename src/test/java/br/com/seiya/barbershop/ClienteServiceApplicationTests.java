@@ -1,4 +1,4 @@
-package br.com.seya.clienteservice;
+package br.com.seiya.barbershop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

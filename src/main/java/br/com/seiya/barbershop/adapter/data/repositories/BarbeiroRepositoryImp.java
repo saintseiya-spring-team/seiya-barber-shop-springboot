@@ -1,11 +1,12 @@
 package br.com.seiya.barbershop.adapter.data.repositories;
 
+import br.com.seiya.barbershop.adapter.data.exceptions.IdJaCadastradoException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import br.com.seiya.barbershop.adapter.data.entities.BarbeiroEntity;
-import br.com.seiya.barbershop.domain.exceptions.IdNaoEncontradoException;
+import br.com.seiya.barbershop.adapter.data.exceptions.IdNaoEncontradoException;
 import br.com.seiya.barbershop.domain.ports.BarbeiroRepositoryPort;
 import lombok.RequiredArgsConstructor;
 
@@ -18,18 +19,18 @@ public class BarbeiroRepositoryImp implements BarbeiroRepositoryPort{
 
 	@Override
 	public BarbeiroEntity salvar(BarbeiroEntity barbeiro) {
-		//TODO verificar caso tentem salvar um que ja existe
+		springRepository.findByIdQuandoEstaAtivo(barbeiro.getCpf()).ifPresent(b -> { throw new IdJaCadastradoException(b); });
 		return springRepository.save(barbeiro);
 	}
 
 	@Override
-	public BarbeiroEntity buscarPorId(Long id) {
-		return springRepository.findByIdQuandoEstaAtivo(id).orElseThrow(IdNaoEncontradoException::new);
+	public BarbeiroEntity buscarPorId(String cpf) {
+		return springRepository.findByIdQuandoEstaAtivo(cpf).orElseThrow(IdNaoEncontradoException::new);
 	}
 
 	@Override
-	public Page<BarbeiroEntity> buscarTodos(Pageable pagima) {
-		return springRepository.findAllQuandoEstaAtivo(pagima);
+	public Page<BarbeiroEntity> buscarTodos(Pageable pagina) {
+		return springRepository.findAllQuandoEstaAtivo(pagina);
 	}
 
 }

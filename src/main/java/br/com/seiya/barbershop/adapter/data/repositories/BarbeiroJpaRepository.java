@@ -10,10 +10,10 @@ import org.springframework.data.repository.query.Param;
 
 import br.com.seiya.barbershop.adapter.data.entities.BarbeiroEntity;
 
-public interface BarbeiroJpaRepository extends JpaRepository<BarbeiroEntity, Long>{
+public interface BarbeiroJpaRepository extends JpaRepository<BarbeiroEntity, String>{
 
 	@Query("SELECT b FROM BarbeiroEntity b WHERE b.id = :id AND b.ativo = true")
-    Optional<BarbeiroEntity> findByIdQuandoEstaAtivo(@Param("id") Long id);
+    Optional<BarbeiroEntity> findByIdQuandoEstaAtivo(@Param("id") String cpf);
 	
 	@Query("SELECT b FROM BarbeiroEntity b WHERE b.ativo = true")
     Page<BarbeiroEntity> findAllQuandoEstaAtivo(Pageable pagima);

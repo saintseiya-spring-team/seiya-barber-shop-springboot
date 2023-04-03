@@ -5,14 +5,13 @@ import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
-import br.com.seiya.barbershop.domain.dtos.BarbeiroRequest;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,8 +19,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "barbeiros")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class BarbeiroEntity {
-//TODO Ids em forma de hash ou CPF
 	@Id
     private String cpf;
 	
@@ -41,11 +41,5 @@ public class BarbeiroEntity {
     @ElementCollection(targetClass = ServicoEntity.class)
     private List<ServicoEntity> servicos = new ArrayList<>();
 
-    public BarbeiroEntity(BarbeiroRequest barbeiro) {
-    	this.email = barbeiro.email;
-    	this.nome = barbeiro.nome;
-    	this.telefone = barbeiro.telefone;
-    	this.ativo = true;
-    }
 
 }

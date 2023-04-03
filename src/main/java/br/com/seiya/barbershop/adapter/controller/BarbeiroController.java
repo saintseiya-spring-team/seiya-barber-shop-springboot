@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.seiya.barbershop.domain.dtos.Barbeiro;
 import br.com.seiya.barbershop.domain.dtos.BarbeiroRequest;
 import br.com.seiya.barbershop.domain.dtos.BarbeiroResponse;
 import br.com.seiya.barbershop.domain.ports.BarbeiroServicePort;
@@ -38,24 +37,24 @@ public class BarbeiroController {
 		return ResponseEntity.created(URI.create("/descricao/"+barbeiroResponse.cpf)).body(barbeiroResponse);
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<BarbeiroResponse> buscaBarbeiro(@PathVariable Long id) {
-		return ResponseEntity.ok(service.buscarPorId(id));
+	@GetMapping("/{cpf}")
+	public ResponseEntity<BarbeiroResponse> buscaBarbeiro(@PathVariable String cpf) {
+		return ResponseEntity.ok(service.buscarPorId(cpf));
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<BarbeiroResponse>> paginaBarbeiro(Pageable pagina) {
+	public ResponseEntity<Page<BarbeiroResponse>> paginarBarbeiro(Pageable pagina) {
 		return ResponseEntity.ok(service.paginarBarbeiros(pagina));
 	}
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<BarbeiroResponse> atualizarBarbeiro(@PathVariable Long id, @RequestBody @Valid Barbeiro dados) {
-		return ResponseEntity.ok(service.atualizarBarbeiro(id, dados));
+	@PutMapping("/{cpf}")
+	public ResponseEntity<BarbeiroResponse> atualizarBarbeiro(@PathVariable String cpf, @RequestBody @Valid BarbeiroRequest dados) {
+		return ResponseEntity.ok(service.atualizarBarbeiro(cpf, dados));
 	}
 	
-	@DeleteMapping("/{id}")
-	public ResponseEntity<BarbeiroResponse> detelarBarbeiro(@PathVariable Long id) {
-		service.exclusaoLogicaBarbeiro(id);
+	@DeleteMapping("/{cpf}")
+	public ResponseEntity<BarbeiroResponse> deletarBarbeiro(@PathVariable String cpf) {
+		service.exclusaoLogicaBarbeiro(cpf);
 		return ResponseEntity.noContent().build();
 	}
 }
