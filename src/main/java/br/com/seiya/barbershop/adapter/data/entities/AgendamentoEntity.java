@@ -1,7 +1,7 @@
 package br.com.seiya.barbershop.adapter.data.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import lombok.Data;
+
 @Entity
+@Data
 @Table(name = "agendamentos")
 public class AgendamentoEntity {
 
@@ -22,7 +25,7 @@ public class AgendamentoEntity {
 
     private LocalDate dia;
 
-    private LocalDateTime horario;
+    private LocalTime horario;
 
     @ManyToOne
     @JoinColumn(name = "barbeiro_id")
@@ -38,5 +41,9 @@ public class AgendamentoEntity {
     @JoinColumn(name = "servico_id")
     @NotNull
     private ServicoEntity servico;
+    
+    private Boolean status;
+    
+    private Boolean pendente;
 
 }

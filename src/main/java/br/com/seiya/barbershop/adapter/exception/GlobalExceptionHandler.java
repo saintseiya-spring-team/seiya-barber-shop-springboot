@@ -3,13 +3,14 @@ package br.com.seiya.barbershop.adapter.exception;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.seiya.barbershop.adapter.data.exceptions.IdJaCadastradoException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import br.com.seiya.barbershop.adapter.data.exceptions.IdJaCadastradoException;
 import br.com.seiya.barbershop.adapter.data.exceptions.IdNaoEncontradoException;
+import br.com.seiya.barbershop.adapter.data.exceptions.ServicoNaoCadastradoException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -19,7 +20,12 @@ public class GlobalExceptionHandler {
 	}
 
 	@ExceptionHandler(IdJaCadastradoException.class)
-	public ResponseEntity<Object> IdJaCadastrado(Exception e) {
+	public ResponseEntity<Object> idJaCadastrado(Exception e) {
+		return ResponseEntity.badRequest().body(e.getMessage());
+	}
+	
+	@ExceptionHandler(ServicoNaoCadastradoException.class)
+	public ResponseEntity<Object> servicoNaoCadastradoException(Exception e) {
 		return ResponseEntity.badRequest().body(e.getMessage());
 	}
 

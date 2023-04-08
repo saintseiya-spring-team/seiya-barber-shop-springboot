@@ -1,8 +1,8 @@
 ALTER TABLE agendamentos
-    DROP CONSTRAINT fkmnyoncbc9dic1sb8awa0y64d5;
+    DROP CONSTRAINT fk_agendamentos_barbeiro_id;
     
 ALTER TABLE barbeiros_servicos
-    DROP CONSTRAINT fk25srj17fr3tv4xi8p9yd80gna;
+    DROP CONSTRAINT fk_barbeiros_servicos_barbeiro_id;
 
 ALTER TABLE barbeiros
     ALTER COLUMN id TYPE CHAR(11);

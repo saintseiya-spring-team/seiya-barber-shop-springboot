@@ -14,10 +14,10 @@ public interface BarbeiroServicePort {
 	
 	public BarbeiroResponse buscarPorId(String cpf);
 	
-	public Page<BarbeiroResponse> paginarBarbeiros(Pageable pagima);
+	public Page<BarbeiroResponse> paginar(Pageable pagima);
 	
-	public BarbeiroResponse atualizarBarbeiro(String cpf, @Valid BarbeiroRequest dados);
+	public BarbeiroResponse atualizar(String cpf, @Valid BarbeiroRequest dados);
 
-	public void exclusaoLogicaBarbeiro(String cpf);
+	public void exclusaoLogica(String cpf);
 		
 }

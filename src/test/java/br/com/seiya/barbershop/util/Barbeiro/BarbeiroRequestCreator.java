@@ -1,4 +1,4 @@
-package br.com.seiya.barbershop.util;
+package br.com.seiya.barbershop.util.Barbeiro;
 
 import br.com.seiya.barbershop.domain.dtos.BarbeiroRequest;
 

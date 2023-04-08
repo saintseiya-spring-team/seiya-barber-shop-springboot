@@ -20,9 +20,8 @@ public class BarbeiroServiceImp implements BarbeiroServicePort {
 	private final BarbeiroMapper map;
 
 	@Override
-	public BarbeiroResponse cadastrar(BarbeiroRequest barbeiro) {
-		BarbeiroEntity entidade = repository.salvar(map.toBarbeiroEntity(barbeiro));
-		return map.toBarbeiroResponse(entidade);
+	public BarbeiroResponse cadastrar(BarbeiroRequest request) {
+		return map.toBarbeiroResponse(repository.salvar(map.toBarbeiroEntity(request)));
 	}
 
 	@Override
@@ -31,13 +30,13 @@ public class BarbeiroServiceImp implements BarbeiroServicePort {
 	}
 
 	@Override
-	public Page<BarbeiroResponse> paginarBarbeiros(Pageable pagina) {
+	public Page<BarbeiroResponse> paginar(Pageable pagina) {
 		return repository.buscarTodos(pagina).map(map::toBarbeiroResponse);
 	}
 
 	@Override
 	@Transactional
-	public BarbeiroResponse atualizarBarbeiro(String cpf, BarbeiroRequest dados) {
+	public BarbeiroResponse atualizar(String cpf, BarbeiroRequest dados) {
 		BarbeiroEntity barbeiro = repository.buscarPorId(cpf);
 		barbeiro.setNome(dados.nome);
 		barbeiro.setEmail(dados.email);
@@ -47,7 +46,7 @@ public class BarbeiroServiceImp implements BarbeiroServicePort {
 
 	@Override
 	@Transactional
-	public void exclusaoLogicaBarbeiro(String cpf) {
+	public void exclusaoLogica(String cpf) {
 		BarbeiroEntity barbeiro = repository.buscarPorId(cpf);
 		barbeiro.setAtivo(false);
 	}

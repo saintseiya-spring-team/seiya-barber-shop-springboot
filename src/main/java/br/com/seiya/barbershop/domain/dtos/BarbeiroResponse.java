@@ -1,13 +1,9 @@
 package br.com.seiya.barbershop.domain.dtos;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalTime;
 
-import br.com.seiya.barbershop.adapter.data.entities.ServicoEntity;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 @Builder
-@EqualsAndHashCode
 public class BarbeiroResponse {
 
 
@@ -20,7 +16,22 @@ public class BarbeiroResponse {
 	public String email;
 
 	public String telefone;
+	
+	public Boolean domingo;
 
-	public List<ServicoEntity> servicos = new ArrayList<>();
-    
+    public Boolean segunda;
+
+    public Boolean terca;
+
+    public Boolean quarta;
+
+    public Boolean quinta;
+
+    public Boolean sexta;
+
+    public Boolean sabado;
+
+    public LocalTime inicioExpediente;
+
+    public LocalTime finalExpediente;
 }

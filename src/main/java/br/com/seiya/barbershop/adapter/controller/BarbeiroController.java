@@ -29,32 +29,31 @@ import lombok.RequiredArgsConstructor;
 public class BarbeiroController {
 
 	private final BarbeiroServicePort service;
-	
-	
+
 	@PostMapping
-	public ResponseEntity<BarbeiroResponse> cadastrarBarbeiro(@RequestBody @Valid BarbeiroRequest dados) {
+	public ResponseEntity<BarbeiroResponse> cadastrar(@RequestBody @Valid BarbeiroRequest dados) {
 		var barbeiroResponse = service.cadastrar(dados);
-		return ResponseEntity.created(URI.create("/descricao/"+barbeiroResponse.cpf)).body(barbeiroResponse);
+		return ResponseEntity.created(URI.create("/descricao/" + barbeiroResponse.cpf)).body(barbeiroResponse);
 	}
-	
+
 	@GetMapping("/{cpf}")
-	public ResponseEntity<BarbeiroResponse> buscaBarbeiro(@PathVariable String cpf) {
+	public ResponseEntity<BarbeiroResponse> buscar(@PathVariable  String cpf) {
 		return ResponseEntity.ok(service.buscarPorId(cpf));
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<BarbeiroResponse>> paginarBarbeiro(Pageable pagina) {
-		return ResponseEntity.ok(service.paginarBarbeiros(pagina));
+	public ResponseEntity<Page<BarbeiroResponse>> paginar(Pageable pagina) {
+		return ResponseEntity.ok(service.paginar(pagina));
 	}
-	
+
 	@PutMapping("/{cpf}")
-	public ResponseEntity<BarbeiroResponse> atualizarBarbeiro(@PathVariable String cpf, @RequestBody @Valid BarbeiroRequest dados) {
-		return ResponseEntity.ok(service.atualizarBarbeiro(cpf, dados));
+	public ResponseEntity<BarbeiroResponse> atualizar(@PathVariable String cpf, @RequestBody @Valid BarbeiroRequest dados) {
+		return ResponseEntity.ok(service.atualizar(cpf, dados));
 	}
-	
+
 	@DeleteMapping("/{cpf}")
-	public ResponseEntity<BarbeiroResponse> deletarBarbeiro(@PathVariable String cpf) {
-		service.exclusaoLogicaBarbeiro(cpf);
+	public ResponseEntity<BarbeiroResponse> deletar(@PathVariable String cpf) {
+		service.exclusaoLogica(cpf);
 		return ResponseEntity.noContent().build();
 	}
 }

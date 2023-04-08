@@ -1,4 +1,4 @@
-package br.com.seiya.barbershop.util;
+package br.com.seiya.barbershop.util.Barbeiro;
 
 import br.com.seiya.barbershop.adapter.data.entities.BarbeiroEntity;
 
@@ -7,7 +7,7 @@ public class BarbeiroEntityCreator {
 
 	public static BarbeiroEntity paraSalvar() {
 		return BarbeiroEntity.builder()
-				.ativo(BarbeiroRequestCreator.paraSalvar().ativo)
+				.ativo(true)
 				.cpf(BarbeiroRequestCreator.paraSalvar().cpf)
 				.email(BarbeiroRequestCreator.paraSalvar().email)
 				.nome(BarbeiroRequestCreator.paraSalvar().nome)
@@ -17,7 +17,7 @@ public class BarbeiroEntityCreator {
 	
 	public static BarbeiroEntity paraAtualizar() {
 		return BarbeiroEntity.builder()
-				.ativo(BarbeiroRequestCreator.paraAtualizar().ativo)
+				.ativo(true)
 				.cpf(BarbeiroRequestCreator.paraAtualizar().cpf)
 				.email(BarbeiroRequestCreator.paraAtualizar().email)
 				.nome(BarbeiroRequestCreator.paraAtualizar().nome)

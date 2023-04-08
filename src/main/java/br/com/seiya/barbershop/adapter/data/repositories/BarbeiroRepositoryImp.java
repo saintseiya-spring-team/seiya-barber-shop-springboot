@@ -19,7 +19,7 @@ public class BarbeiroRepositoryImp implements BarbeiroRepositoryPort{
 
 	@Override
 	public BarbeiroEntity salvar(BarbeiroEntity barbeiro) {
-		springRepository.findByIdQuandoEstaAtivo(barbeiro.getCpf()).ifPresent(b -> { throw new IdJaCadastradoException(b); });
+		springRepository.findByIdQuandoEstaAtivo(barbeiro.getCpf()).ifPresent(b -> { throw new IdJaCadastradoException("O CPF "+ b.getCpf() + " já está cadastrado"); });
 		return springRepository.save(barbeiro);
 	}
 

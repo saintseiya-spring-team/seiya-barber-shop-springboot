@@ -23,24 +23,23 @@ CREATE TABLE servicos (
 	CONSTRAINT servicos_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.barbeiros_servicos (
-	barbeiro_id int8 NOT NULL,
-	servico_id int8 NOT NULL,
-	CONSTRAINT uk_85b3w1vbiv1samnbv2gtdnquu UNIQUE (servico_id),
-	CONSTRAINT uk_l8xqpy6q268lax37x8p6r45d3 UNIQUE (servico_id),
-	CONSTRAINT fk25srj17fr3tv4xi8p9yd80gna FOREIGN KEY (barbeiro_id) REFERENCES public.barbeiros(id),
-	CONSTRAINT fko0mwwqrnd3u1whsxbl118c6ir FOREIGN KEY (servico_id) REFERENCES public.servicos(id)
+CREATE TABLE barbeiros_servicos (
+    barbeiro_id int8 NOT NULL,
+    servico_id int8 NOT NULL,
+    CONSTRAINT uk_barbeiros_servicos_unique_servico_id UNIQUE (servico_id),
+    CONSTRAINT fk_barbeiros_servicos_barbeiro_id FOREIGN KEY (barbeiro_id) REFERENCES barbeiros(id),
+    CONSTRAINT fk_barbeiros_servicos_servico_id FOREIGN KEY (servico_id) REFERENCES servicos(id)
 );
 
 CREATE TABLE agendamentos (
-	id bigserial NOT NULL,
-	dia int4 NULL,
-	horario varchar(255) NULL,
-	barbeiro_id int8 NULL,
-	cliente_id int8 NULL,
-	servico_id int8 NULL,
-	CONSTRAINT agendamentos_pkey PRIMARY KEY (id),
-	CONSTRAINT fkhi2c1ld155hsb4ybomwx9ieat FOREIGN KEY (servico_id) REFERENCES servicos(id),
-	CONSTRAINT fkmnyoncbc9dic1sb8awa0y64d5 FOREIGN KEY (barbeiro_id) REFERENCES barbeiros(id),
-	CONSTRAINT fkmyowslj1th8d9j6j3wlbwrtoe FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+    id bigserial NOT NULL,
+    dia int4 NULL,
+    horario varchar(255) NULL,
+    barbeiro_id int8 NULL,
+    cliente_id int8 NULL,
+    servico_id int8 NULL,
+    CONSTRAINT pk_agendamentos PRIMARY KEY (id),
+    CONSTRAINT fk_agendamentos_servico_id FOREIGN KEY (servico_id) REFERENCES servicos(id),
+    CONSTRAINT fk_agendamentos_barbeiro_id FOREIGN KEY (barbeiro_id) REFERENCES barbeiros(id),
+    CONSTRAINT fk_agendamentos_cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes(id)
 );

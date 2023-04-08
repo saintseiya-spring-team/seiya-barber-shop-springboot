@@ -1,13 +1,13 @@
 package br.com.seiya.barbershop.adapter.data.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+import java.time.LocalTime;
 
-import javax.persistence.ElementCollection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -18,10 +18,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "barbeiros")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class BarbeiroEntity {
+public class BarbeiroEntity implements Serializable{
+	private static final long serialVersionUID = 1L;
+
 	@Id
     private String cpf;
 	
@@ -32,14 +34,22 @@ public class BarbeiroEntity {
     private String email;
 
     private String telefone;
+    
+    private Boolean domingo;
 
-    @JoinTable(
-            name = "barbeiros_servicos",
-            joinColumns = @JoinColumn(name ="barbeiro_id"),
-            inverseJoinColumns = @JoinColumn(name ="servico_id")
-    )
-    @ElementCollection(targetClass = ServicoEntity.class)
-    private List<ServicoEntity> servicos = new ArrayList<>();
+    private Boolean segunda;
 
+    private Boolean terca;
 
+    private Boolean quarta;
+
+    private Boolean quinta;
+
+    private Boolean sexta;
+
+    private Boolean sabado;
+
+    private LocalTime inicioExpediente;
+
+    private LocalTime finalExpediente;
 }
